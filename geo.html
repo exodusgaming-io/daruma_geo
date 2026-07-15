@@ -15,10 +15,11 @@
     :root {
       --orange: #f78a00;
       --cream: #f6f0d9;
+      --red: #e0203a;
       --text: #ffffff;
       --muted: #b9bad0;
       --btn-text: #21203d;
-      --red: #e0203a;
+      --card-bg: #0c0a16;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,9 +30,8 @@
       font-family: "Poppins", Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(1000px 520px at 20% 0%, rgba(1, 25, 82, 0.9), transparent 60%),
-        radial-gradient(900px 520px at 85% 110%, rgba(80, 6, 10, 0.85), transparent 60%),
-        linear-gradient(180deg, #04061a 0%, #0a0510 100%);
+        radial-gradient(1100px 600px at 50% -5%, rgba(1, 25, 82, 0.85), transparent 60%),
+        linear-gradient(180deg, #050818 0%, #0b0a14 100%);
       background-attachment: fixed;
     }
 
@@ -39,61 +39,66 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 32px 16px;
+      padding: 28px 16px;
       min-height: 100vh;
     }
 
-    .wrap {
+    .card {
       width: 100%;
-      max-width: 960px;
-      display: flex;
-      align-items: center;
-      gap: 40px;
+      max-width: 560px;
+      border-radius: 24px;
+      padding: 32px 28px;
+      text-align: center;
+      background:
+        linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+        linear-gradient(150deg, rgba(247, 138, 0, 0.9), rgba(224, 32, 58, 0.9)) border-box;
+      border: 1.5px solid transparent;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.6);
     }
-
-    .hero {
-      flex: 0 0 44%;
-      max-width: 44%;
-    }
-
-    .hero img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 20px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
-    }
-
-    .content { flex: 1 1 0; min-width: 0; }
 
     .title {
-      font-size: 34px;
+      font-size: 30px;
       font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 16px;
+      line-height: 1.12;
       text-transform: uppercase;
       letter-spacing: 0.01em;
+      margin-bottom: 14px;
     }
 
-    .subtitle { font-size: 16px; line-height: 1.55; color: var(--text); margin-bottom: 26px; }
+    .subtitle { font-size: 15px; line-height: 1.5; color: var(--text); margin-bottom: 22px; }
 
-    .divider { height: 1px; background: rgba(255, 255, 255, 0.12); margin: 26px 0; }
+    .hero {
+      width: 100%;
+      border-radius: 16px;
+      display: block;
+      margin: 0 auto 22px;
+    }
 
-    .note-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-    .note { font-size: 14px; line-height: 1.55; color: var(--muted); margin-bottom: 24px; }
+    .cta-box {
+      border-radius: 16px;
+      padding: 18px 18px 20px;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.03)) padding-box,
+        linear-gradient(150deg, rgba(247, 138, 0, 0.85), rgba(224, 32, 58, 0.85)) border-box;
+      border: 1.5px solid transparent;
+    }
 
-    .btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .note-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .note { font-size: 13px; line-height: 1.5; color: var(--muted); margin-bottom: 18px; }
+
+    .btns { display: flex; gap: 12px; }
 
     .btn {
       flex: 1 1 0;
-      min-width: 150px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 22px;
+      padding: 14px 18px;
       border-radius: 100px;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
       text-decoration: none;
       cursor: pointer;
       border: none;
@@ -103,7 +108,7 @@
     .btn--chat {
       background: rgba(255, 255, 255, 0.08);
       color: var(--text);
-      border: 1px solid rgba(255, 255, 255, 0.24);
+      border: 1px solid rgba(255, 255, 255, 0.22);
     }
     .btn--chat:hover { background: rgba(255, 255, 255, 0.15); }
 
@@ -114,34 +119,28 @@
     }
     .btn--email:hover { transform: translateY(-1px); }
 
-    @media (max-width: 720px) {
-      .wrap { flex-direction: column; gap: 28px; text-align: center; }
-      .hero { flex: none; max-width: 340px; width: 100%; }
-      .title { font-size: 27px; }
-      .btns { justify-content: center; }
-      .btn { flex: 1 1 100%; }
+    @media (max-width: 480px) {
+      .card { padding: 24px 18px; border-radius: 20px; }
+      .title { font-size: 25px; }
+      .btns { flex-direction: column; }
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="hero">
-      <img src="gaming-denied.png" alt="Daruma Casino — Gaming Denied">
-    </div>
-    <div class="content">
-      <h1 class="title">Thanks for stopping by!</h1>
-      <p class="subtitle">
-        At the moment, Daruma Casino is only available to players located within the United States, excluding restricted regions.
-      </p>
+  <div class="card">
+    <h1 class="title">Thanks for stopping by!</h1>
+    <p class="subtitle">
+      At the moment, Daruma Casino is only available to players located within the United States, excluding restricted regions.
+    </p>
 
-      <div class="divider"></div>
+    <img src="gaming-denied.png" alt="Daruma Casino — Gaming Denied" class="hero">
 
+    <div class="cta-box">
       <p class="note-title">Think you're in an eligible location and got this message by mistake?</p>
       <p class="note">
         Don't worry, feel free to reach out to our support team using one of the options below. We're always happy to help!
       </p>
-
       <div class="btns">
         <a href="#" class="btn btn--chat" id="live-chat-btn">Live Chat</a>
         <a href="mailto:support@darumacasino.us" class="btn btn--email">Email</a>
