@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <title>Geo Block</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #10101e;
+      --bg-2: #1a1830;
+      --panel: #1c1a2e;
+      --panel-border: rgba(247, 138, 0, 0.35);
+      --orange: #f78a00;
+      --cream: #f6f0d9;
+      --text: #ffffff;
+      --muted: #b7b5c8;
+      --btn-text: #21203d;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      font-family: "Poppins", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 50% -10%, rgba(247, 138, 0, 0.18), transparent 60%),
+        radial-gradient(900px 500px at 50% 120%, rgba(42, 43, 147, 0.35), transparent 60%),
+        linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+      background-attachment: fixed;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 560px;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 24px;
+      padding: 40px 32px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      text-align: center;
+    }
+
+    .logo { width: 132px; height: auto; margin: 0 auto 24px; display: block; }
+
+    .title {
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+    }
+
+    .subtitle { font-size: 16px; line-height: 1.55; color: var(--text); margin-bottom: 28px; }
+
+    .divider { height: 1px; background: rgba(255, 255, 255, 0.1); margin: 28px 0; }
+
+    .note-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .note { font-size: 14px; line-height: 1.55; color: var(--muted); margin-bottom: 24px; }
+
+    .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    .btn {
+      flex: 1 1 0;
+      min-width: 160px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    }
+
+    .btn--chat {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+    .btn--chat:hover { background: rgba(255, 255, 255, 0.14); }
+
+    .btn--email {
+      background: linear-gradient(180deg, var(--cream) -20%, var(--orange) 100%);
+      color: var(--btn-text);
+      box-shadow: 0 10px 24px rgba(247, 138, 0, 0.28);
+    }
+    .btn--email:hover { transform: translateY(-1px); }
+
+    @media (max-width: 480px) {
+      .card { padding: 32px 20px; border-radius: 20px; }
+      .title { font-size: 25px; }
+      .btn { flex: 1 1 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <img src="darumlogo.png" alt="Daruma Casino" class="logo">
+    <h1 class="title">Thanks for stopping by!</h1>
+    <p class="subtitle">
+      At the moment, Daruma Casino is only available to players located within the United States, excluding restricted regions.
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="note-title">Think you're in an eligible location and got this message by mistake?</p>
+    <p class="note">
+      Don't worry, feel free to reach out to our support team using one of the options below. We're always happy to help!
+    </p>
+
+    <div class="btns">
+      <a href="#" class="btn btn--chat" id="live-chat-btn">Live Chat</a>
+      <a href="mailto:support@darumacasino.us" class="btn btn--email">Email</a>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var liveChatBtn = document.getElementById('live-chat-btn');
+      liveChatBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage('openLiveChat', '*');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
